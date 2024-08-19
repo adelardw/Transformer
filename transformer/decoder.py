@@ -27,9 +27,9 @@ class TransformerDecoder(nn.Module):
         self.fc_hidden_size = fc_hidden_size
 
         if encoder_out_size is not None:
-            self.encoder_out_size = encoder_out_size
+            self.encoder_out_size = self.encoder_out_size
         else:
-            self.encoder_out_size = in_size
+            self.encoder_out_size = self.out_size
         
 
         self.embeddings = nn.Embedding(self.vocab_size, self.in_size)
