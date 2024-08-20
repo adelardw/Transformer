@@ -44,7 +44,7 @@ class MultiHeadAttention(nn.Module):
         relevance = q @ k.transpose(2, 3) / math.sqrt(self.head_size)
 
         if mask is not None:
-            relevance = relevance.masked_fill(mask, -torch.inf)
+            relevance = relevance.masked_fill(mask, -1e18)
         
         relevance = F.softmax(relevance, dim=-1)
 
